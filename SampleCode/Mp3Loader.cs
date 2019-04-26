@@ -15,6 +15,7 @@ public static class Mp3Loader {
                                     true,
                                     data => { int actualReadCount = mpegFile.ReadSamples(data, 0, data.Length); },
                                     position => { mpegFile = new MpegFile(filePath); });
+    mpegFile.Dispose();
 
     return ac;
   }
