@@ -2,6 +2,7 @@
 
 ## SYSTEM REQUIREMENT
  - Unity 5.6.4 or above
+ - .Net 3.5 or above
 
 ## PREMISE
 In a populer way, you can load .mp3 file by `UnityEngine.WWW class`. 
