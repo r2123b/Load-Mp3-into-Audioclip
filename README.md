@@ -1,5 +1,8 @@
 # Load Mp3 into Audioclip
 
+## SYSTEM REQUIREMENT
+ - Unity 5.6.4 or above
+
 ## PREMISE
 In a populer way, you can load .mp3 file by `UnityEngine.WWW class`. 
 ```cs
