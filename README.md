@@ -57,7 +57,9 @@ public static class Mp3Loader {
 
   // PCMSetPositionCallback will called when first loading this audioclip
   private static void OnClipPositionSet(int position) {
+    mpegFile.Dispose();
     mpegFile = new MpegFile(_filePath);
+    mpegFile.Position = position * sizeof(float) * mpegFile.Channels;
   }
 }
 ```
@@ -80,7 +82,11 @@ public static class Mp3Loader {
                                     mpegFile.SampleRate,
                                     true,
                                     data => { int actualReadCount = mpegFile.ReadSamples(data, 0, data.Length); },
-                                    position => { mpegFile = new MpegFile(filePath); });
+                                    {
+                                        mpegFile.Dispose();
+                                        mpegFile = new MpegFile(filePath);
+                                        mpegFile.Position = position * sizeof(float) * mpegFile.Channels;
+                                    });
 
     return ac;
   }
